@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addCityVCCellID" rowHeight="100" id="KGk-i7-Jjw" customClass="AddCityVCCell" customModule="OptusJob" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AsF-zp-rod">
+                        <rect key="frame" x="8" y="8" width="304" height="84"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13E-0d-j6a">
+                                <rect key="frame" x="250" y="19" width="46" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="LGQ-90-cBn"/>
+                                    <constraint firstAttribute="height" constant="46" id="clU-nx-xz5"/>
+                                </constraints>
+                                <state key="normal" image="plus_image"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fe5-UN-btp">
+                                <rect key="frame" x="8" y="19" width="234" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="OAS-Bm-nV1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="13E-0d-j6a" firstAttribute="leading" secondItem="fe5-UN-btp" secondAttribute="trailing" constant="8" id="78D-dL-324"/>
+                            <constraint firstItem="fe5-UN-btp" firstAttribute="centerY" secondItem="AsF-zp-rod" secondAttribute="centerY" id="N4o-wJ-QOM"/>
+                            <constraint firstAttribute="trailing" secondItem="13E-0d-j6a" secondAttribute="trailing" constant="8" id="P4x-SJ-p4C"/>
+                            <constraint firstItem="13E-0d-j6a" firstAttribute="centerY" secondItem="AsF-zp-rod" secondAttribute="centerY" id="QZX-Hb-aVC"/>
+                            <constraint firstItem="fe5-UN-btp" firstAttribute="leading" secondItem="AsF-zp-rod" secondAttribute="leading" constant="8" id="unW-Cy-gOa"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="AsF-zp-rod" secondAttribute="trailing" constant="8" id="8nr-GB-ZoQ"/>
+                    <constraint firstItem="AsF-zp-rod" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="OCh-V9-RBI"/>
+                    <constraint firstItem="AsF-zp-rod" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="XI8-vH-WFF"/>
+                    <constraint firstAttribute="bottom" secondItem="AsF-zp-rod" secondAttribute="bottom" constant="7.5" id="rZC-E7-x1g"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="addButtonOutlet" destination="13E-0d-j6a" id="G7u-W6-PBc"/>
+                <outlet property="backgroundCardView" destination="AsF-zp-rod" id="XSB-78-nGV"/>
+                <outlet property="cityNameLabel" destination="fe5-UN-btp" id="CcT-ep-LGb"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="74"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="plus_image" width="30" height="30"/>
+    </resources>
+</document>

@@ -7,21 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8490B286B3C69054C6CEB9C6 /* Pods_OptusJob.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2167DE36B1467D7E1B61CA65 /* Pods_OptusJob.framework */; };
 		C23BDDBC20DCB72A003990CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BDDBB20DCB72A003990CE /* AppDelegate.swift */; };
-		C23BDDBE20DCB72A003990CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BDDBD20DCB72A003990CE /* ViewController.swift */; };
 		C23BDDC120DCB72A003990CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C23BDDBF20DCB72A003990CE /* Main.storyboard */; };
 		C23BDDC320DCB72A003990CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C23BDDC220DCB72A003990CE /* Assets.xcassets */; };
 		C23BDDC620DCB72A003990CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C23BDDC420DCB72A003990CE /* LaunchScreen.storyboard */; };
+		C23BDDD020DCB81C003990CE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C23BDDCE20DCB81B003990CE /* MBProgressHUD.m */; };
+		C23BDDD320DCBC0C003990CE /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BDDD220DCBC0C003990CE /* HomeVC.swift */; };
+		C23BDDD720DCBFEF003990CE /* AddCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BDDD620DCBFEF003990CE /* AddCityVC.swift */; };
+		C23BDDD920DD03E3003990CE /* HomeVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BDDD820DD03E3003990CE /* HomeVCCell.swift */; };
+		C23BDDDE20DD04BD003990CE /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BDDDD20DD04BD003990CE /* DetailsVC.swift */; };
+		C23BDDE020DD0A2E003990CE /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BDDDF20DD0A2E003990CE /* Structures.swift */; };
+		C23BDDE220DD101B003990CE /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BDDE120DD101B003990CE /* Configs.swift */; };
+		C275F53020E1DDC000F60153 /* UserDefaultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275F52F20E1DDC000F60153 /* UserDefaultsController.swift */; };
+		C275F53220E1FB3600F60153 /* TemperatureConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275F53120E1FB3600F60153 /* TemperatureConverter.swift */; };
+		C2E69AA920DF6E69001AE73E /* DetailsVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E69AA820DF6E69001AE73E /* DetailsVCCell.swift */; };
+		C2E69AAB20E0A33C001AE73E /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E69AAA20E0A33C001AE73E /* NetworkController.swift */; };
+		C2E8D81420DD20800027212E /* AddCityVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E8D81220DD20800027212E /* AddCityVCCell.swift */; };
+		C2E8D81520DD20800027212E /* AddCityVCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2E8D81320DD20800027212E /* AddCityVCCell.xib */; };
+		C2EEBB2420DE1B2B0097A623 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EEBB2320DE1B2B0097A623 /* Extentions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2167DE36B1467D7E1B61CA65 /* Pods_OptusJob.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OptusJob.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D9B19CDEF66058DE65190D8 /* Pods-OptusJob.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OptusJob.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OptusJob/Pods-OptusJob.debug.xcconfig"; sourceTree = "<group>"; };
+		821D953B3982873AF7C52C60 /* Pods-OptusJob.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OptusJob.release.xcconfig"; path = "Pods/Target Support Files/Pods-OptusJob/Pods-OptusJob.release.xcconfig"; sourceTree = "<group>"; };
 		C23BDDB820DCB72A003990CE /* OptusJob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OptusJob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C23BDDBB20DCB72A003990CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C23BDDBD20DCB72A003990CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C23BDDC020DCB72A003990CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C23BDDC220DCB72A003990CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C23BDDC520DCB72A003990CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C23BDDC720DCB72A003990CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C23BDDCD20DCB81B003990CE /* OptusJob-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OptusJob-Bridging-Header.h"; sourceTree = "<group>"; };
+		C23BDDCE20DCB81B003990CE /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		C23BDDCF20DCB81C003990CE /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		C23BDDD220DCBC0C003990CE /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		C23BDDD620DCBFEF003990CE /* AddCityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityVC.swift; sourceTree = "<group>"; };
+		C23BDDD820DD03E3003990CE /* HomeVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCCell.swift; sourceTree = "<group>"; };
+		C23BDDDD20DD04BD003990CE /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
+		C23BDDDF20DD0A2E003990CE /* Structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
+		C23BDDE120DD101B003990CE /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
+		C275F52F20E1DDC000F60153 /* UserDefaultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsController.swift; sourceTree = "<group>"; };
+		C275F53120E1FB3600F60153 /* TemperatureConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureConverter.swift; sourceTree = "<group>"; };
+		C2E69AA820DF6E69001AE73E /* DetailsVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVCCell.swift; sourceTree = "<group>"; };
+		C2E69AAA20E0A33C001AE73E /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		C2E8D81220DD20800027212E /* AddCityVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityVCCell.swift; sourceTree = "<group>"; };
+		C2E8D81320DD20800027212E /* AddCityVCCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCityVCCell.xib; sourceTree = "<group>"; };
+		C2EEBB2320DE1B2B0097A623 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +61,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8490B286B3C69054C6CEB9C6 /* Pods_OptusJob.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B351C0633DCF31BBE82943CC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D9B19CDEF66058DE65190D8 /* Pods-OptusJob.debug.xcconfig */,
+				821D953B3982873AF7C52C60 /* Pods-OptusJob.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C23BDDAF20DCB72A003990CE = {
 			isa = PBXGroup;
 			children = (
 				C23BDDBA20DCB72A003990CE /* OptusJob */,
 				C23BDDB920DCB72A003990CE /* Products */,
+				B351C0633DCF31BBE82943CC /* Pods */,
+				D768E43C53D27203C4074E6E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +99,68 @@
 			isa = PBXGroup;
 			children = (
 				C23BDDBB20DCB72A003990CE /* AppDelegate.swift */,
-				C23BDDBD20DCB72A003990CE /* ViewController.swift */,
+				C23BDDDB20DD041A003990CE /* Models */,
+				C23BDDDA20DD03F4003990CE /* Views */,
+				C23BDDDC20DD0432003990CE /* Controllers */,
+				C23BDDD120DCB829003990CE /* HUD */,
 				C23BDDBF20DCB72A003990CE /* Main.storyboard */,
 				C23BDDC220DCB72A003990CE /* Assets.xcassets */,
 				C23BDDC420DCB72A003990CE /* LaunchScreen.storyboard */,
 				C23BDDC720DCB72A003990CE /* Info.plist */,
+				C23BDDCD20DCB81B003990CE /* OptusJob-Bridging-Header.h */,
 			);
 			path = OptusJob;
+			sourceTree = "<group>";
+		};
+		C23BDDD120DCB829003990CE /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				C23BDDCF20DCB81C003990CE /* MBProgressHUD.h */,
+				C23BDDCE20DCB81B003990CE /* MBProgressHUD.m */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
+		C23BDDDA20DD03F4003990CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C23BDDD220DCBC0C003990CE /* HomeVC.swift */,
+				C23BDDDD20DD04BD003990CE /* DetailsVC.swift */,
+				C23BDDD620DCBFEF003990CE /* AddCityVC.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C23BDDDB20DD041A003990CE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C23BDDE120DD101B003990CE /* Configs.swift */,
+				C23BDDDF20DD0A2E003990CE /* Structures.swift */,
+				C2EEBB2320DE1B2B0097A623 /* Extentions.swift */,
+				C275F53120E1FB3600F60153 /* TemperatureConverter.swift */,
+				C23BDDD820DD03E3003990CE /* HomeVCCell.swift */,
+				C2E69AA820DF6E69001AE73E /* DetailsVCCell.swift */,
+				C2E8D81220DD20800027212E /* AddCityVCCell.swift */,
+				C2E8D81320DD20800027212E /* AddCityVCCell.xib */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C23BDDDC20DD0432003990CE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C2E69AAA20E0A33C001AE73E /* NetworkController.swift */,
+				C275F52F20E1DDC000F60153 /* UserDefaultsController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D768E43C53D27203C4074E6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2167DE36B1467D7E1B61CA65 /* Pods_OptusJob.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +170,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C23BDDCA20DCB72A003990CE /* Build configuration list for PBXNativeTarget "OptusJob" */;
 			buildPhases = (
+				DC8B8AEDA5C62220C1B9B006 /* [CP] Check Pods Manifest.lock */,
 				C23BDDB420DCB72A003990CE /* Sources */,
 				C23BDDB520DCB72A003990CE /* Frameworks */,
 				C23BDDB620DCB72A003990CE /* Resources */,
+				B316E0D03443C9C1230513A7 /* [CP] Embed Pods Frameworks */,
+				FE620289D0F47FD7286496CC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +198,7 @@
 				TargetAttributes = {
 					C23BDDB720DCB72A003990CE = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -124,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C23BDDC620DCB72A003990CE /* LaunchScreen.storyboard in Resources */,
+				C2E8D81520DD20800027212E /* AddCityVCCell.xib in Resources */,
 				C23BDDC320DCB72A003990CE /* Assets.xcassets in Resources */,
 				C23BDDC120DCB72A003990CE /* Main.storyboard in Resources */,
 			);
@@ -131,13 +235,84 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B316E0D03443C9C1230513A7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OptusJob/Pods-OptusJob-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OptusJob/Pods-OptusJob-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC8B8AEDA5C62220C1B9B006 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OptusJob-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE620289D0F47FD7286496CC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OptusJob/Pods-OptusJob-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OptusJob/Pods-OptusJob-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C23BDDB420DCB72A003990CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C23BDDBE20DCB72A003990CE /* ViewController.swift in Sources */,
+				C23BDDD320DCBC0C003990CE /* HomeVC.swift in Sources */,
+				C23BDDE220DD101B003990CE /* Configs.swift in Sources */,
+				C2E69AA920DF6E69001AE73E /* DetailsVCCell.swift in Sources */,
+				C2EEBB2420DE1B2B0097A623 /* Extentions.swift in Sources */,
+				C2E8D81420DD20800027212E /* AddCityVCCell.swift in Sources */,
+				C23BDDDE20DD04BD003990CE /* DetailsVC.swift in Sources */,
+				C275F53020E1DDC000F60153 /* UserDefaultsController.swift in Sources */,
+				C23BDDD920DD03E3003990CE /* HomeVCCell.swift in Sources */,
+				C23BDDE020DD0A2E003990CE /* Structures.swift in Sources */,
+				C2E69AAB20E0A33C001AE73E /* NetworkController.swift in Sources */,
+				C23BDDD720DCBFEF003990CE /* AddCityVC.swift in Sources */,
+				C23BDDD020DCB81C003990CE /* MBProgressHUD.m in Sources */,
 				C23BDDBC20DCB72A003990CE /* AppDelegate.swift in Sources */,
+				C275F53220E1FB3600F60153 /* TemperatureConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,31 +447,40 @@
 		};
 		C23BDDCB20DCB72A003990CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D9B19CDEF66058DE65190D8 /* Pods-OptusJob.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 99A3LZ3EYV;
 				INFOPLIST_FILE = OptusJob/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.purple-lava.OptusJob";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OptusJob/OptusJob-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		C23BDDCC20DCB72A003990CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 821D953B3982873AF7C52C60 /* Pods-OptusJob.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 99A3LZ3EYV;
 				INFOPLIST_FILE = OptusJob/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.purple-lava.OptusJob";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OptusJob/OptusJob-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
