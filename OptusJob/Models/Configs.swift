@@ -13,7 +13,7 @@ let NAV_BAR_BUTTON_COLOR = UIColor.darkGray
 let NAV_BAR_TITLE_COLOR = UIColor.white
 let NAV_BAR_ATTRIBUTES = [NSAttributedStringKey.foregroundColor : UIColor.white,
                           NSAttributedStringKey.font : UIFont(name: "HelveticaNeue-Light", size: 26)!]
-// Enter your own api keys below
+// Enter your own api keys below:
 let WEATHER_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 let GOOGLE_MAPS_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 let SEARCH_BY_ID_URL = URL(string: "http://api.openweathermap.org/data/2.5/weather?id=")!
