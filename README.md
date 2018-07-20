@@ -1,4 +1,8 @@
 # Blue-Sky
 Small app for a coding challenge
 
-Open the config file and enter your own iOS Google Maps API key and the Open Weather Maps API key. 
+Read the 'Coding Assignment' PDF for specifics. 
+
+If you want to pull it and use it you'll need to get and change a couple of keys in the apps config file. The keys you need are: 
+IOS Google Maps API key (goto the Google Developers Console)
+Open Weather Maps API key (https://openweathermap.org/api)
