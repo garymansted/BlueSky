@@ -1,5 +1,5 @@
 # Blue-Sky
-Small app for a coding challenge (SWIFT 4)
+Small app for a coding challenge in SWIFT 4 EDIT: Updated to Swift 5
 
 Release Notes:
 
