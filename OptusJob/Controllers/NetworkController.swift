@@ -142,9 +142,9 @@ class NetworkController {
                   //  print("*JSON*")
                   //  print(JSON)
                     let response = JSON as! NSDictionary
-                    if let code = response.object(forKey: "cod") {
+                  //  if let code = response.object(forKey: "cod") {
                         // responseCode = Int(code as! Int)
-                    }
+                  //  }
                     if let name = response.object(forKey: "name") {
                         cityJSONStruct.cityName = name as! String
                     }

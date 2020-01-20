@@ -34,14 +34,14 @@ extension UIView {
 extension UIViewController {
     // MARK: - Display Restricted Location Alert -
     func displayRestrictedLocationAlert() {
-        let alertController = UIAlertController(title: "Location Restricted", message: "In order to use this function you must change 'Location' from 'Never' to 'While Using the App' by selecting OptusJob in the device's Settings", preferredStyle: UIAlertControllerStyle.alert)
-        let goto_settings_action = UIAlertAction(title: "Go to Settings now", style: UIAlertActionStyle.default) {
+        let alertController = UIAlertController(title: "Location Restricted", message: "In order to use this function you must change 'Location' from 'Never' to 'While Using the App' by selecting OptusJob in the device's Settings", preferredStyle: UIAlertController.Style.alert)
+        let goto_settings_action = UIAlertAction(title: "Go to Settings now", style: UIAlertAction.Style.default) {
             (result : UIAlertAction) -> Void in
-            UIApplication.shared.open(NSURL(string:UIApplicationOpenSettingsURLString)! as URL, options: [:], completionHandler: { (true) in
+            UIApplication.shared.open(NSURL(string:UIApplication.openSettingsURLString)! as URL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: { (true) in
                 print("")
             })
         }
-        let not_now_action = UIAlertAction(title: "Not now", style: UIAlertActionStyle.default) {
+        let not_now_action = UIAlertAction(title: "Not now", style: UIAlertAction.Style.default) {
             (result : UIAlertAction) -> Void in }
         alertController.addAction(goto_settings_action)
         alertController.addAction(not_now_action)
@@ -49,16 +49,16 @@ extension UIViewController {
     }
     // MARK: - Display Network Error Alert
     func displayNetworkErrorMessage() {
-        let alertController = UIAlertController(title: "No Internet", message: "Please check your network settings and try again", preferredStyle: UIAlertControllerStyle.alert)
-        let button1_action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
+        let alertController = UIAlertController(title: "No Internet", message: "Please check your network settings and try again", preferredStyle: UIAlertController.Style.alert)
+        let button1_action = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {
             (result : UIAlertAction) -> Void in }
         alertController.addAction(button1_action)
         self.present(alertController, animated: true, completion: nil)
     }
     // MARK: - Display City Error Alert
     func displayCityErrorMessage() {
-        let alertController = UIAlertController(title: "Select Again", message: "Unable to save as the location you have selected does not have a nearby city.\nPlease select again", preferredStyle: UIAlertControllerStyle.alert)
-        let button1_action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
+        let alertController = UIAlertController(title: "Select Again", message: "Unable to save as the location you have selected does not have a nearby city.\nPlease select again", preferredStyle: UIAlertController.Style.alert)
+        let button1_action = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) {
             (result : UIAlertAction) -> Void in }
         alertController.addAction(button1_action)
         self.present(alertController, animated: true, completion: nil)
@@ -66,3 +66,8 @@ extension UIViewController {
 }
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}

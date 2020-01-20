@@ -27,13 +27,13 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         homeVCTableView.delegate = self
         homeVCTableView.separatorStyle = .none
         NotificationCenter.default.addObserver(self, selector: #selector(refreshHomeVC), name: NSNotification.Name(rawValue: "Refresh_HomeVC"), object: nil)
-        UserDefaultsController.getSavedCityIds { (savedCityIds) in
+        UserDefaultsController.getSavedCityIds { [unowned self] (savedCityIds) in
             if savedCityIds.count > 0 {
                 DispatchQueue.main.async {
                     let activityIndicator = MBProgressHUD.showAdded(to: self.navigationController?.view, animated: true)
                     activityIndicator?.activityIndicatorColor = ACTIVITY_INDICATOR_SPINNER_COLOR
                 }
-                NetworkController.getWeatherData(cityIds: savedCityIds,completion: { (error, weatherData) in
+                NetworkController.getWeatherData(cityIds: savedCityIds,completion: { [unowned self] (error, weatherData) in
                     if error != nil {
                         MBProgressHUD.hide(for: self.navigationController?.view, animated: true)
                         self.displayNetworkErrorMessage()
@@ -83,7 +83,7 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @objc func refreshHomeVC() {
         UserDefaultsController.getSavedCityIds { (savedCityIds) in
             if savedCityIds.count > 0 {
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [unowned self] in
                     let activityIndicator = MBProgressHUD.showAdded(to: self.navigationController?.view, animated: true)
                     activityIndicator?.activityIndicatorColor = ACTIVITY_INDICATOR_SPINNER_COLOR
                 }
@@ -165,10 +165,10 @@ extension HomeVC {
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             var index = 0
-            UserDefaultsController.getSavedCityIds { (savedCityIds) in
+            UserDefaultsController.getSavedCityIds { [unowned self] (savedCityIds) in
                 DispatchQueue.main.async {
                     var cityIds = savedCityIds
                     for id in cityIds {

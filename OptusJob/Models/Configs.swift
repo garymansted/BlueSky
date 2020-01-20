@@ -11,8 +11,8 @@ import Foundation
 let MAIN_APP_COLOR = UIColor(red: 118/255, green: 214/255, blue: 1, alpha: 1)
 let NAV_BAR_BUTTON_COLOR = UIColor.darkGray
 let NAV_BAR_TITLE_COLOR = UIColor.white
-let NAV_BAR_ATTRIBUTES = [NSAttributedStringKey.foregroundColor : UIColor.white,
-                          NSAttributedStringKey.font : UIFont(name: "HelveticaNeue-Light", size: 26)!]
+let NAV_BAR_ATTRIBUTES = [NSAttributedString.Key.foregroundColor : UIColor.white,
+                          NSAttributedString.Key.font : UIFont(name: "HelveticaNeue-Light", size: 26)!]
 // Enter your own api keys below:
 let WEATHER_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 let GOOGLE_MAPS_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"

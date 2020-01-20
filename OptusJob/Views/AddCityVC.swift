@@ -128,11 +128,11 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
 
     // MARK: - Present MapView
     func presentMapView() {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] in
             if let sb = self.searchBar {
                 sb.endEditing(true)
             }
-            UIView.animate(withDuration: 0.4, animations: {
+            UIView.animate(withDuration: 0.4, animations: { [unowned self] in
                 self.mapView.alpha = 1
                 self.mapView.transform = .identity
             }, completion: { (true) in })
@@ -142,7 +142,7 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
     // MARK: - Hide MapView
     func hideMapView() {
         let transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] in
             UIView.animate(withDuration: 0.2, animations: {
                 self.mapView.transform = transform
                 self.mapView.alpha = 0
@@ -165,7 +165,7 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
         deployMarker = GMSMarker(position: coordinate)
         deployMarker.icon = GMSMarker.markerImage(with: .blue)
         deployMarker.map = mapView
-        NetworkController.searchByLatAndLon(latitude: "\(coordinate.latitude)", longtitude: "\(coordinate.longitude)") { (cityData) in
+        NetworkController.searchByLatAndLon(latitude: "\(coordinate.latitude)", longtitude: "\(coordinate.longitude)") { [unowned self] (cityData) in
             MBProgressHUD.hide(for: self.navigationController?.view, animated: true)
             self.cityList.removeAll()
             self.cityList = cityData
@@ -177,12 +177,11 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
     
     // MARK: - Display Confirm Alert
     func displayConfirmAlert(cityId: String) {
-        let alertController = UIAlertController(title: "Confirm Selection", message: "Tap on 'Ok' to confirm your selection", preferredStyle: UIAlertControllerStyle.alert)
-        let button1_action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
-            (result : UIAlertAction) -> Void in
+        let alertController = UIAlertController(title: "Confirm Selection", message: "Tap on 'Ok' to confirm your selection", preferredStyle: UIAlertController.Style.alert)
+        let button1_action = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { [unowned self] (result : UIAlertAction) -> Void in
             self.saveNewCityIdEntry(newEntry: cityId)
         }
-        let button2_action = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default) {
+        let button2_action = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default) {
             (result : UIAlertAction) -> Void in }
         alertController.addAction(button1_action)
         alertController.addAction(button2_action)
@@ -191,7 +190,7 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
 
     // MARK: - Update City Name Label
     func updateCityNameLabel(cityName: String) {
-        UIView.animate(withDuration: 0.35) {
+        UIView.animate(withDuration: 0.35) { [unowned self] in
             self.cityNameLabel.text = cityName
             self.view.layoutIfNeeded()
         }
@@ -209,7 +208,7 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
     
     // MARK: - Save New City Entry
     func saveNewCityIdEntry(newEntry: String) {
-        UserDefaultsController.getSavedCityIds { (savedCityIds) in
+        UserDefaultsController.getSavedCityIds { [unowned self] (savedCityIds) in
             var isAlreadyAnEntry = false
             var cityIds = savedCityIds
             for i in savedCityIds {
@@ -218,14 +217,14 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
                 }
             }
             if isAlreadyAnEntry == true {
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [unowned self] in
                     self.presentAlreadyAddedAlert()
                 }
             }
             else {
                 cityIds.append(newEntry)
                 UserDefaultsController.saveNewCityIdEntryies(entries: cityIds)
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [unowned self] in
                     self.presentSuccessAlert()
                 }
             }
@@ -234,9 +233,8 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
     
     // MARK: - Display Already Added Alert
     func presentAlreadyAddedAlert() {
-        let alertController = UIAlertController(title: "Already Added", message: "You have already added this city.\nPlease search again", preferredStyle: UIAlertControllerStyle.alert)
-        let button1_action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
-            (result : UIAlertAction) -> Void in
+        let alertController = UIAlertController(title: "Already Added", message: "You have already added this city.\nPlease search again", preferredStyle: UIAlertController.Style.alert)
+        let button1_action = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { [unowned self] (result : UIAlertAction) -> Void in
             self.cityList.removeAll()
             if let sb = self.searchBar {
                 sb.endEditing(true)
@@ -257,9 +255,8 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
     
     // MARK: - Display Save Success Alert
     func presentSuccessAlert() {
-        let alertController = UIAlertController(title: "Saved", message: "Save Success!", preferredStyle: UIAlertControllerStyle.alert)
-        let button1_action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
-            (result : UIAlertAction) -> Void in
+        let alertController = UIAlertController(title: "Saved", message: "Save Success!", preferredStyle: UIAlertController.Style.alert)
+        let button1_action = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { [unowned self] (result : UIAlertAction) -> Void in
             NotificationCenter.default.post(name: Notification.Name(rawValue: "Refresh_HomeVC"), object: nil)
             self.closeVC()
         }
@@ -365,11 +362,11 @@ extension AddCityVC {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText != "" {
             self.cityList.removeAll()
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [unowned self] in
                 self.addCityTableView.reloadData()
             }
             let text = searchBar.text!.replacingOccurrences(of: " ", with: "_")
-            NetworkController.searchByFilter(searchText: text, completion: { (cityData) in
+            NetworkController.searchByFilter(searchText: text, completion: { [unowned self] (cityData) in
                 self.cityList = cityData
                 self.addCityTableView.reloadData()
             })
@@ -378,3 +375,4 @@ extension AddCityVC {
     
 }
 
+// END REGION

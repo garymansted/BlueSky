@@ -120,7 +120,7 @@ class DetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, G
             UIView.animate(withDuration: 0.2, delay: 0.12, options: [], animations: {
                 cell.backgroundCardView_6.alpha = 1
                 cell.backgroundCardView_6.transform = .identity
-            }, completion: { (true) in
+            }, completion: { [unowned self] (true) in
                 self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector:#selector(self.timerTick) , userInfo: nil, repeats: true)
                 self.detailsViewTableView.isScrollEnabled = true
             })
@@ -129,7 +129,7 @@ class DetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, G
     
     // MARK: - Timer Tick
     @objc func timerTick() {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] in
             self.time = DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .medium)
             if self.hasStartedTimer == false {
                 self.hasStartedTimer = true
@@ -143,7 +143,7 @@ class DetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, G
 
     // MARK: - Animate Title Label
     func updateNavTitleLabel(theTime: String) {
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: 0.5) { [unowned self] in
             self.navigationItem.title = theTime
             self.view.layoutIfNeeded()
         }
