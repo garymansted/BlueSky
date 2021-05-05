@@ -17,5 +17,5 @@ If you want to pull it and use it you'll need to get and change a couple of keys
 
 ## Requirements 
 ### Backlog
-- Check out the [Coding Assignment](/)
+- Check out the [Coding Assignment](/Coding%20Assignment%20-%20v1.2.pdf)
    PDF for functionality specifics.
