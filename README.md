@@ -1,5 +1,5 @@
 # BlueSky
-Small app for a coding challenge in SWIFT 4 EDIT: Updated to Swift 5
+Small app for a coding challenge in SWIFT 4  **EDIT:** *Updated to Swift 5*
 
 ## Release Notes:
 **iForget** is written in `Swift ~> 5.0`.<br>
