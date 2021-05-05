@@ -14,11 +14,13 @@ Developed for the iPhone (*iPhone 5 ~> current model*)<br>
 *Backend:* Nil<br>
 
 <p align="left">
-    <img src="/assets/BlueSkyDemo.gif" width="225" height="451" title="BlueSky - Coding Challenge App">
-    <img src="/assets/BlueSky_Image_3.png" width="169" height="365" title="BlueSky - Coding Challenge App">
-    <img src="/assets/BlueSky_Image_9.png" width="169" height="365" title="BlueSky - Coding Challenge App">
-    <img src="/assets/BlueSky_Image_10.png" width="169" height="365" title="BlueSky - Coding Challenge App">
-    <img src="/assets/BlueSky_Image_11.png" width="169" height="365" title="BlueSky - Coding Challenge App">
+    <img src="/repo/BlueSkyDemo.gif" width="225" height="451" title="BlueSky - Coding Challenge App">
+    <img src="/repo/BlueSky_Image_3.png" width="169" height="365" title="BlueSky - Coding Challenge App">
+    <img src="/repo/BlueSky_Image_6.png" width="169" height="365" title="BlueSky - Coding Challenge App">
+    <img src="/repo/BlueSky_Image_7.png" width="169" height="365" title="BlueSky - Coding Challenge App">
+    <img src="/repo/BlueSky_Image_9.png" width="169" height="365" title="BlueSky - Coding Challenge App">
+    <img src="/repo/BlueSky_Image_10.png" width="169" height="365" title="BlueSky - Coding Challenge App">
+    <img src="/repo/BlueSky_Image_11.png" width="169" height="365" title="BlueSky - Coding Challenge App">
 </p>
 
 ## Installation 
