@@ -1,4 +1,4 @@
-# Blue-Sky
+# BlueSky
 Small app for a coding challenge in SWIFT 4 EDIT: Updated to Swift 5
 
 ## Release Notes:
@@ -14,7 +14,8 @@ Developed for the iPhone (*iPhone 5 ~> current model*)<br>
 *Backend:* Nil<br>
 
 ## Installation 
-
+BlueSky uses `Cocoapods`. Make sure you have `Cocoapods` installed.<br>
+`Pods` are included in the repo so you only need to clone the project and open the `.xcworkspace` 
 You'll need to get and change a couple of keys in the apps config file. The keys you need are: an IOS Google Maps API key (Google Developers Console) & an Open Weather Maps API key (https://openweathermap.org/api). 
 
 ## Requirements 
