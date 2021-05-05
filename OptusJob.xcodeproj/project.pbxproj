@@ -21,6 +21,7 @@
 		C23BDDE220DD101B003990CE /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BDDE120DD101B003990CE /* Configs.swift */; };
 		C27151ED26425BBA0033E6CE /* NetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27151EC26425BBA0033E6CE /* NetworkServices.swift */; };
 		C27151F126425C240033E6CE /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27151F026425C240033E6CE /* UserDefaultService.swift */; };
+		C27151FB26428E3D0033E6CE /* APISecrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27151FA26428E3D0033E6CE /* APISecrets.swift */; };
 		C275F53220E1FB3600F60153 /* TemperatureConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275F53120E1FB3600F60153 /* TemperatureConverter.swift */; };
 		C2E69AA920DF6E69001AE73E /* DetailsVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E69AA820DF6E69001AE73E /* DetailsVCCell.swift */; };
 		C2E8D81420DD20800027212E /* AddCityVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E8D81220DD20800027212E /* AddCityVCCell.swift */; };
@@ -49,6 +50,7 @@
 		C23BDDE120DD101B003990CE /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		C27151EC26425BBA0033E6CE /* NetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServices.swift; sourceTree = "<group>"; };
 		C27151F026425C240033E6CE /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
+		C27151FA26428E3D0033E6CE /* APISecrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISecrets.swift; sourceTree = "<group>"; };
 		C275F53120E1FB3600F60153 /* TemperatureConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureConverter.swift; sourceTree = "<group>"; };
 		C2E69AA820DF6E69001AE73E /* DetailsVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVCCell.swift; sourceTree = "<group>"; };
 		C2E8D81220DD20800027212E /* AddCityVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityVCCell.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				C23BDDE120DD101B003990CE /* Configs.swift */,
+				C27151FA26428E3D0033E6CE /* APISecrets.swift */,
 				C23BDDDF20DD0A2E003990CE /* Structures.swift */,
 				C2EEBB2320DE1B2B0097A623 /* Extentions.swift */,
 				C275F53120E1FB3600F60153 /* TemperatureConverter.swift */,
@@ -322,6 +325,7 @@
 				C2EEBB2420DE1B2B0097A623 /* Extentions.swift in Sources */,
 				C2E8D81420DD20800027212E /* AddCityVCCell.swift in Sources */,
 				C23BDDDE20DD04BD003990CE /* DetailsVC.swift in Sources */,
+				C27151FB26428E3D0033E6CE /* APISecrets.swift in Sources */,
 				C23BDDD920DD03E3003990CE /* HomeVCCell.swift in Sources */,
 				C23BDDE020DD0A2E003990CE /* Structures.swift in Sources */,
 				C23BDDD720DCBFEF003990CE /* AddCityVC.swift in Sources */,
