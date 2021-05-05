@@ -17,5 +17,5 @@ If you want to pull it and use it you'll need to get and change a couple of keys
 
 ## Requirements 
 ### Backlog
-- Check out the <a src="/Coding Assignment - v1.2.pdf" alt="Coding Assignment"></a>
+- Check out the [Coding Assignment](/)
    PDF for functionality specifics.
