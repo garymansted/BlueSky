@@ -14,8 +14,8 @@ let NAV_BAR_TITLE_COLOR = UIColor.white
 let NAV_BAR_ATTRIBUTES = [NSAttributedString.Key.foregroundColor : UIColor.white,
                           NSAttributedString.Key.font : UIFont(name: "HelveticaNeue-Light", size: 26)!]
 // Enter your own api keys below:
-let WEATHER_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-let GOOGLE_MAPS_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+let WEATHER_API_KEY = "37f08cdac85a5846c278a1ae7cf94e81"
+let GOOGLE_MAPS_API_KEY = "AIzaSyCi3J73QLMztHC31dSfk0OqdQSeOjyVvYs"
 let SEARCH_BY_ID_URL = URL(string: "http://api.openweathermap.org/data/2.5/weather?id=")!
 let REFRESH_TIME = 60.0
 let ACTIVITY_INDICATOR_SPINNER_COLOR = UIColor.white

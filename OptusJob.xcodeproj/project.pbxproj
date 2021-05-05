@@ -19,10 +19,10 @@
 		C23BDDDE20DD04BD003990CE /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BDDDD20DD04BD003990CE /* DetailsVC.swift */; };
 		C23BDDE020DD0A2E003990CE /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BDDDF20DD0A2E003990CE /* Structures.swift */; };
 		C23BDDE220DD101B003990CE /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23BDDE120DD101B003990CE /* Configs.swift */; };
-		C275F53020E1DDC000F60153 /* UserDefaultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275F52F20E1DDC000F60153 /* UserDefaultsController.swift */; };
+		C27151ED26425BBA0033E6CE /* NetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27151EC26425BBA0033E6CE /* NetworkServices.swift */; };
+		C27151F126425C240033E6CE /* UserDefaultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27151F026425C240033E6CE /* UserDefaultService.swift */; };
 		C275F53220E1FB3600F60153 /* TemperatureConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275F53120E1FB3600F60153 /* TemperatureConverter.swift */; };
 		C2E69AA920DF6E69001AE73E /* DetailsVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E69AA820DF6E69001AE73E /* DetailsVCCell.swift */; };
-		C2E69AAB20E0A33C001AE73E /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E69AAA20E0A33C001AE73E /* NetworkController.swift */; };
 		C2E8D81420DD20800027212E /* AddCityVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E8D81220DD20800027212E /* AddCityVCCell.swift */; };
 		C2E8D81520DD20800027212E /* AddCityVCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2E8D81320DD20800027212E /* AddCityVCCell.xib */; };
 		C2EEBB2420DE1B2B0097A623 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EEBB2320DE1B2B0097A623 /* Extentions.swift */; };
@@ -47,10 +47,10 @@
 		C23BDDDD20DD04BD003990CE /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		C23BDDDF20DD0A2E003990CE /* Structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
 		C23BDDE120DD101B003990CE /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
-		C275F52F20E1DDC000F60153 /* UserDefaultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsController.swift; sourceTree = "<group>"; };
+		C27151EC26425BBA0033E6CE /* NetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServices.swift; sourceTree = "<group>"; };
+		C27151F026425C240033E6CE /* UserDefaultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultService.swift; sourceTree = "<group>"; };
 		C275F53120E1FB3600F60153 /* TemperatureConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureConverter.swift; sourceTree = "<group>"; };
 		C2E69AA820DF6E69001AE73E /* DetailsVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVCCell.swift; sourceTree = "<group>"; };
-		C2E69AAA20E0A33C001AE73E /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		C2E8D81220DD20800027212E /* AddCityVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityVCCell.swift; sourceTree = "<group>"; };
 		C2E8D81320DD20800027212E /* AddCityVCCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCityVCCell.xib; sourceTree = "<group>"; };
 		C2EEBB2320DE1B2B0097A623 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
@@ -102,7 +102,6 @@
 				C23BDDDB20DD041A003990CE /* Models */,
 				C23BDDDA20DD03F4003990CE /* Views */,
 				C23BDDDC20DD0432003990CE /* Controllers */,
-				C23BDDD120DCB829003990CE /* HUD */,
 				C23BDDBF20DCB72A003990CE /* Main.storyboard */,
 				C23BDDC220DCB72A003990CE /* Assets.xcassets */,
 				C23BDDC420DCB72A003990CE /* LaunchScreen.storyboard */,
@@ -124,9 +123,7 @@
 		C23BDDDA20DD03F4003990CE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C23BDDD220DCBC0C003990CE /* HomeVC.swift */,
-				C23BDDDD20DD04BD003990CE /* DetailsVC.swift */,
-				C23BDDD620DCBFEF003990CE /* AddCityVC.swift */,
+				C23BDDD120DCB829003990CE /* HUD */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -138,10 +135,9 @@
 				C23BDDDF20DD0A2E003990CE /* Structures.swift */,
 				C2EEBB2320DE1B2B0097A623 /* Extentions.swift */,
 				C275F53120E1FB3600F60153 /* TemperatureConverter.swift */,
-				C23BDDD820DD03E3003990CE /* HomeVCCell.swift */,
-				C2E69AA820DF6E69001AE73E /* DetailsVCCell.swift */,
-				C2E8D81220DD20800027212E /* AddCityVCCell.swift */,
-				C2E8D81320DD20800027212E /* AddCityVCCell.xib */,
+				C27151EC26425BBA0033E6CE /* NetworkServices.swift */,
+				C27151F026425C240033E6CE /* UserDefaultService.swift */,
+				C27151F8264262710033E6CE /* CellModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -149,10 +145,30 @@
 		C23BDDDC20DD0432003990CE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C2E69AAA20E0A33C001AE73E /* NetworkController.swift */,
-				C275F52F20E1DDC000F60153 /* UserDefaultsController.swift */,
+				C27151F526425C860033E6CE /* ViewControllers */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C27151F526425C860033E6CE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C23BDDD220DCBC0C003990CE /* HomeVC.swift */,
+				C23BDDDD20DD04BD003990CE /* DetailsVC.swift */,
+				C23BDDD620DCBFEF003990CE /* AddCityVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C27151F8264262710033E6CE /* CellModels */ = {
+			isa = PBXGroup;
+			children = (
+				C23BDDD820DD03E3003990CE /* HomeVCCell.swift */,
+				C2E69AA820DF6E69001AE73E /* DetailsVCCell.swift */,
+				C2E8D81220DD20800027212E /* AddCityVCCell.swift */,
+				C2E8D81320DD20800027212E /* AddCityVCCell.xib */,
+			);
+			path = CellModels;
 			sourceTree = "<group>";
 		};
 		D768E43C53D27203C4074E6E /* Frameworks */ = {
@@ -299,19 +315,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C27151ED26425BBA0033E6CE /* NetworkServices.swift in Sources */,
 				C23BDDD320DCBC0C003990CE /* HomeVC.swift in Sources */,
 				C23BDDE220DD101B003990CE /* Configs.swift in Sources */,
 				C2E69AA920DF6E69001AE73E /* DetailsVCCell.swift in Sources */,
 				C2EEBB2420DE1B2B0097A623 /* Extentions.swift in Sources */,
 				C2E8D81420DD20800027212E /* AddCityVCCell.swift in Sources */,
 				C23BDDDE20DD04BD003990CE /* DetailsVC.swift in Sources */,
-				C275F53020E1DDC000F60153 /* UserDefaultsController.swift in Sources */,
 				C23BDDD920DD03E3003990CE /* HomeVCCell.swift in Sources */,
 				C23BDDE020DD0A2E003990CE /* Structures.swift in Sources */,
-				C2E69AAB20E0A33C001AE73E /* NetworkController.swift in Sources */,
 				C23BDDD720DCBFEF003990CE /* AddCityVC.swift in Sources */,
 				C23BDDD020DCB81C003990CE /* MBProgressHUD.m in Sources */,
 				C23BDDBC20DCB72A003990CE /* AppDelegate.swift in Sources */,
+				C27151F126425C240033E6CE /* UserDefaultService.swift in Sources */,
 				C275F53220E1FB3600F60153 /* TemperatureConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

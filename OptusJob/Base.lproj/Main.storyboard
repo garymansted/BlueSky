@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ucp-9K-LyN">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ucp-9K-LyN">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--OptusJob-->
+        <!--BlueSky-->
         <scene sceneID="geb-O6-ts7">
             <objects>
                 <viewController id="11c-NO-pAA" customClass="HomeVC" customModule="OptusJob" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,21 +17,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_Image" translatesAutoresizingMaskIntoConstraints="NO" id="6Yv-wZ-CQJ">
-                                <rect key="frame" x="0.0" y="-24" width="375" height="725"/>
+                                <rect key="frame" x="0.0" y="-46" width="375" height="747"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HTo-In-m0e">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="96" width="375" height="571"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="homeVCCellID" rowHeight="100" id="A68-hn-dRL" customClass="HomeVCCell" customModule="OptusJob" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A68-hn-dRL" id="80w-u9-1uE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="egv-ln-gZe">
-                                                    <rect key="frame" x="8" y="8" width="359" height="83.5"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="84"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH2-ZS-wZS">
                                                             <rect key="frame" x="8" y="12" width="256" height="60"/>
@@ -55,7 +53,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delete_Image" translatesAutoresizingMaskIntoConstraints="NO" id="cG2-NZ-b8O">
-                                                            <rect key="frame" x="346" y="28.5" width="9" height="30"/>
+                                                            <rect key="frame" x="346" y="29" width="9" height="30"/>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="9" id="F5p-f5-ajM"/>
@@ -118,6 +116,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="1Wj-sB-opm"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HTo-In-m0e" firstAttribute="leading" secondItem="1Wj-sB-opm" secondAttribute="leading" id="FFy-Ey-0qa"/>
@@ -128,7 +127,7 @@
                             <constraint firstItem="HTo-In-m0e" firstAttribute="top" secondItem="1Wj-sB-opm" secondAttribute="top" id="RDl-Az-JDg"/>
                             <constraint firstItem="HTo-In-m0e" firstAttribute="trailing" secondItem="1Wj-sB-opm" secondAttribute="trailing" id="TZM-X3-PK2"/>
                             <constraint firstItem="6Yv-wZ-CQJ" firstAttribute="top" secondItem="1Wj-sB-opm" secondAttribute="top" constant="-64" id="UFk-nR-KZ5">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-88"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="-142"/>
                             </constraint>
                             <constraint firstItem="HTo-In-m0e" firstAttribute="bottom" secondItem="1Wj-sB-opm" secondAttribute="bottom" id="ffn-mI-5LI"/>
                             <constraint firstItem="6Yv-wZ-CQJ" firstAttribute="leading" secondItem="1Wj-sB-opm" secondAttribute="leading" id="tei-JZ-DlM">
@@ -138,9 +137,8 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="-44"/>
                             </constraint>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="1Wj-sB-opm"/>
                     </view>
-                    <navigationItem key="navigationItem" title="OptusJob" id="i0N-k0-x2M">
+                    <navigationItem key="navigationItem" title="BlueSky" largeTitleDisplayMode="always" id="i0N-k0-x2M">
                         <barButtonItem key="backBarButtonItem" title=" " id="pbB-pC-eTM"/>
                         <barButtonItem key="rightBarButtonItem" image="plus_image" style="done" id="AwY-8a-oyf">
                             <connections>
@@ -150,7 +148,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="homeVCTableView" destination="HTo-In-m0e" id="voH-8D-gHe"/>
-                        <segue destination="p2Q-3p-igB" kind="presentation" identifier="addCitySegue" id="rxT-kf-bC7"/>
+                        <segue destination="p2Q-3p-igB" kind="presentation" identifier="addCitySegue" modalPresentationStyle="fullScreen" id="rxT-kf-bC7"/>
                         <segue destination="ls5-wy-Sra" kind="push" identifier="showDetailSegue" id="4ZI-RY-umw"/>
                     </connections>
                 </viewController>
@@ -167,17 +165,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_Image" translatesAutoresizingMaskIntoConstraints="NO" id="era-yt-DNV">
-                                <rect key="frame" x="0.0" y="-24" width="375" height="725"/>
+                                <rect key="frame" x="0.0" y="-44" width="375" height="745"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wEE-TA-9kB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailsVCCellID" rowHeight="510" id="6k9-Zb-R4c" customClass="DetailsVCCell" customModule="OptusJob" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="510"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6k9-Zb-R4c" id="Z8d-eO-b2r">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="509.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GoO-cN-AmC">
@@ -414,7 +412,7 @@
                                                     </variation>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47e-7y-Cl1">
-                                                    <rect key="frame" x="15" y="202" width="345" height="50"/>
+                                                    <rect key="frame" x="16" y="202" width="343" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="420" id="4ud-94-a4T"/>
                                                         <constraint firstAttribute="height" constant="50" id="Kb0-Gl-MnQ"/>
@@ -807,6 +805,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Sgo-XW-aXp"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="era-yt-DNV" firstAttribute="top" secondItem="pu2-gg-Pjb" secondAttribute="top" id="6QU-Va-o4d"/>
@@ -827,7 +826,6 @@
                             <constraint firstItem="wEE-TA-9kB" firstAttribute="top" secondItem="Sgo-XW-aXp" secondAttribute="top" id="W7P-L4-AEn"/>
                             <constraint firstItem="wEE-TA-9kB" firstAttribute="leading" secondItem="Sgo-XW-aXp" secondAttribute="leading" id="nu0-Tw-nUe"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Sgo-XW-aXp"/>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="TrY-Wj-E2d"/>
@@ -842,7 +840,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="UEw-3S-AcC">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="UEw-3S-AcC">
                         <barButtonItem key="backBarButtonItem" title="&quot;" id="8Jl-68-Vdn"/>
                     </navigationItem>
                     <connections>
@@ -863,10 +861,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_Image" translatesAutoresizingMaskIntoConstraints="NO" id="Ehb-xk-SUk">
-                                <rect key="frame" x="0.0" y="-24" width="375" height="725"/>
+                                <rect key="frame" x="0.0" y="-44" width="375" height="745"/>
                             </imageView>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="E.g. Sydney" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="93P-ou-1RM">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="2tK-oX-S5w"/>
@@ -876,11 +874,11 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WqN-GH-zXj">
-                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="579"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="SS5-sE-P96">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SS5-sE-P96" id="PUh-yx-f5X">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -890,7 +888,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AHh-tE-Xos" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="637"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="657"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGm-CD-mPF">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
@@ -909,8 +907,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esx-em-v2F">
-                                        <rect key="frame" x="154.5" y="503" width="66" height="66"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esx-em-v2F">
+                                        <rect key="frame" x="154.5" y="523" width="66" height="66"/>
                                         <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="66" id="CHA-OR-rDx"/>
@@ -941,6 +939,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Cc1-6a-VGf"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Cc1-6a-VGf" firstAttribute="trailing" secondItem="Ehb-xk-SUk" secondAttribute="trailing" id="6Sb-Zt-cUk">
@@ -971,7 +970,6 @@
                             </constraint>
                             <constraint firstItem="WqN-GH-zXj" firstAttribute="top" secondItem="93P-ou-1RM" secondAttribute="bottom" id="zFE-Q8-coF"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Cc1-6a-VGf"/>
                     </view>
                     <navigationItem key="navigationItem" title="City Search" id="AmF-f2-XaC">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="dgr-GG-bYu">
@@ -1003,9 +1001,14 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ucp-9K-LyN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lQn-2c-MGw">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="lQn-2c-MGw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="38"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1022,7 +1025,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p2Q-3p-igB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LID-x1-Rp8">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

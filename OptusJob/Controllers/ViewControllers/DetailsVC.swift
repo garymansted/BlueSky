@@ -11,20 +11,19 @@ import AlamofireImage
 import Alamofire
 import GoogleMaps
 
-class DetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, GMSMapViewDelegate {
+class DetailsVC: UIViewController, GMSMapViewDelegate {
 
     @IBOutlet weak var detailsBackgroundImageView: UIImageView!
     @IBOutlet weak var detailsViewTableView: UITableView!
     var detailsData = Weather()
-    var timer = Timer()
-    var time = ""
-    let dateFormatter = DateFormatter()
-    var hasStartedTimer = false
+    private var timer = Timer()
+    private var time = ""
+    private let dateFormatter = DateFormatter()
+    private var hasStartedTimer = false
     
     // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-
         detailsViewTableView.dataSource = self
         detailsViewTableView.delegate = self
         detailsViewTableView.separatorStyle = .none
@@ -43,7 +42,7 @@ class DetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, G
     }
     
     // MARK - Cell Animation 1
-    func cellAnimation_1(cell: DetailsVCCell) {
+    private func cellAnimation_1(cell: DetailsVCCell) {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 1.4, delay: 0, options: [], animations: {
                 cell.backgroundCardView_1.alpha = 1
@@ -55,7 +54,7 @@ class DetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, G
     }
     
     // MARK - Cell Animation 2
-    func cellAnimation_2(cell: DetailsVCCell) {
+    private func cellAnimation_2(cell: DetailsVCCell) {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 1.4, animations: {
                 cell.cityNameLabel.alpha = 1
@@ -66,7 +65,7 @@ class DetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, G
     }
     
     // MARK - Cell Animation 3
-    func cellAnimation_3(cell: DetailsVCCell) {
+    private func cellAnimation_3(cell: DetailsVCCell) {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.2, delay: 0.1, options: [], animations: {
                 cell.backgroundCardView_2.alpha = 1
@@ -78,7 +77,7 @@ class DetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, G
     }
     
     // MARK - Cell Animation 4
-    func cellAnimation_4(cell: DetailsVCCell) {
+    private func cellAnimation_4(cell: DetailsVCCell) {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.2, delay: 0.12, options: [], animations: {
                 cell.backgroundCardView_3.alpha = 1
@@ -91,7 +90,7 @@ class DetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, G
     }
     
     // MARK - Cell Animation 5
-    func cellAnimation_5(cell: DetailsVCCell) {
+    private func cellAnimation_5(cell: DetailsVCCell) {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.2, delay: 0.12, options: [], animations: {
                 cell.backgroundCardView_4.alpha = 1
@@ -103,7 +102,7 @@ class DetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, G
     }
     
     // MARK - Cell Animation 6
-    func cellAnimation_6(cell: DetailsVCCell) {
+    private func cellAnimation_6(cell: DetailsVCCell) {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.2, delay: 0.12, options: [], animations: {
                 cell.backgroundCardView_5.alpha = 1
@@ -115,8 +114,8 @@ class DetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, G
     }
     
     // MARK - Cell Animation 7
-    func cellAnimation_7(cell: DetailsVCCell) {
-        DispatchQueue.main.async {
+    private func cellAnimation_7(cell: DetailsVCCell) {
+        DispatchQueue.main.async { [unowned self] in
             UIView.animate(withDuration: 0.2, delay: 0.12, options: [], animations: {
                 cell.backgroundCardView_6.alpha = 1
                 cell.backgroundCardView_6.transform = .identity
@@ -128,7 +127,7 @@ class DetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, G
     }
     
     // MARK: - Timer Tick
-    @objc func timerTick() {
+    @objc private func timerTick() {
         DispatchQueue.main.async { [unowned self] in
             self.time = DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .medium)
             if self.hasStartedTimer == false {
@@ -142,7 +141,7 @@ class DetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, G
     }
 
     // MARK: - Animate Title Label
-    func updateNavTitleLabel(theTime: String) {
+    private func updateNavTitleLabel(theTime: String) {
         UIView.animate(withDuration: 0.5) { [unowned self] in
             self.navigationItem.title = theTime
             self.view.layoutIfNeeded()
@@ -160,7 +159,7 @@ class DetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, G
 
 
 // MARK: - DetailsVC Extention
-extension DetailsVC {
+extension DetailsVC: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - TableView Delegate Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -202,6 +201,7 @@ extension DetailsVC {
         }
         return cell
     }
+    
 }
 
 

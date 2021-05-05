@@ -11,29 +11,28 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeVC: UIViewController {
 
     @IBOutlet weak var homeVCTableView: UITableView!
-    var weatherDetail = Weather()
-    var weather = [Weather]()
-    var refreshHomeVCTimer : Timer?
-    var networkError = false
+    private var weatherDetail = Weather()
+    private var weather = [Weather]()
+    weak private var refreshHomeVCTimer : Timer?
+    private var networkError = false
     
     // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-
         homeVCTableView.dataSource = self
         homeVCTableView.delegate = self
         homeVCTableView.separatorStyle = .none
         NotificationCenter.default.addObserver(self, selector: #selector(refreshHomeVC), name: NSNotification.Name(rawValue: "Refresh_HomeVC"), object: nil)
-        UserDefaultsController.getSavedCityIds { [unowned self] (savedCityIds) in
+        UserDefaultService.getSavedCityIds { [unowned self] (savedCityIds) in
             if savedCityIds.count > 0 {
                 DispatchQueue.main.async {
                     let activityIndicator = MBProgressHUD.showAdded(to: self.navigationController?.view, animated: true)
                     activityIndicator?.activityIndicatorColor = ACTIVITY_INDICATOR_SPINNER_COLOR
                 }
-                NetworkController.getWeatherData(cityIds: savedCityIds,completion: { [unowned self] (error, weatherData) in
+                NetworkServices.getWeatherData(cityIds: savedCityIds,completion: { [unowned self] (error, weatherData) in
                     if error != nil {
                         MBProgressHUD.hide(for: self.navigationController?.view, animated: true)
                         self.displayNetworkErrorMessage()
@@ -81,13 +80,13 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Refresh HomeVC
     @objc func refreshHomeVC() {
-        UserDefaultsController.getSavedCityIds { (savedCityIds) in
+        UserDefaultService.getSavedCityIds { (savedCityIds) in
             if savedCityIds.count > 0 {
                 DispatchQueue.main.async { [unowned self] in
                     let activityIndicator = MBProgressHUD.showAdded(to: self.navigationController?.view, animated: true)
                     activityIndicator?.activityIndicatorColor = ACTIVITY_INDICATOR_SPINNER_COLOR
                 }
-                NetworkController.getWeatherData(cityIds: savedCityIds, completion: { (error, weatherData) in
+                NetworkServices.getWeatherData(cityIds: savedCityIds, completion: { (error, weatherData) in
                     if error != nil {
                         MBProgressHUD.hide(for: self.navigationController?.view, animated: true)
                         self.displayNetworkErrorMessage()
@@ -122,11 +121,11 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 }
 
-
 // END REGION
 
+
 // MARK: - Extention HomeVC
-extension HomeVC {
+extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - TableView Delegate Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -168,7 +167,7 @@ extension HomeVC {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             var index = 0
-            UserDefaultsController.getSavedCityIds { [unowned self] (savedCityIds) in
+            UserDefaultService.getSavedCityIds { [unowned self] (savedCityIds) in
                 DispatchQueue.main.async {
                     var cityIds = savedCityIds
                     for id in cityIds {
@@ -179,10 +178,10 @@ extension HomeVC {
                         index += 1
                     }
                     if cityIds.count == 0 {
-                        UserDefaultsController.saveNewCityIdEntryies(entries: [])
+                        UserDefaultService.saveNewCityIdEntryies(entries: [])
                     }
                     else {
-                        UserDefaultsController.saveNewCityIdEntryies(entries: cityIds)
+                        UserDefaultService.saveNewCityIdEntryies(entries: cityIds)
                     }
                     self.weather.remove(at: indexPath.row)
                     tableView.deleteRows(at: [indexPath], with: .fade)
@@ -191,14 +190,5 @@ extension HomeVC {
         }
     }
     
-     /*
-     // code to change cell order 
-     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-         let itemToMove = weather[sourceIndexPath.row]
-         weather.remove(at: sourceIndexPath.row)
-         weather.insert(itemToMove, at: destinationIndexPath.row)
-     }
-     */
     
 }
-

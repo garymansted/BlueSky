@@ -12,7 +12,7 @@ import AlamofireImage
 import GoogleMaps
 import CoreLocation
 
-class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, GMSMapViewDelegate {
+class AddCityVC: UIViewController {
 
     @IBOutlet weak var addCityTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -20,42 +20,19 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
     @IBOutlet weak var saveButtonOutlet: UIButton!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityNameLabelBackgroundView: UIView!
-    var cityList = [Weather]()
-    var city = Weather()
-    var mapViewIsShowing = false
-    var locationManager: CLLocationManager! = CLLocationManager()
-    var userLocation: CLLocation = CLLocation()
-    var deployMarker = GMSMarker()
-    var hasLoadedViewOnce = false
+    private var cityList = [Weather]()
+    private var city = Weather()
+    private var mapViewIsShowing = false
+    private var locationManager: CLLocationManager! = CLLocationManager()
+    private var userLocation: CLLocation = CLLocation()
+    private var deployMarker = GMSMarker()
+    private var hasLoadedViewOnce = false
 
     // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let nib = UINib.init(nibName: "AddCityVCCell", bundle: nil)
-        addCityTableView.register(nib, forCellReuseIdentifier: "addCityVCCellID")
-        addCityTableView.delegate = self
-        addCityTableView.dataSource = self
-        addCityTableView.separatorStyle = .none
-        formatSaveButton()
-        formatSearchBar()
-        formatMapview()
-        cityNameLabel.text = ""
-        cityNameLabelBackgroundView.dropShadow()
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            locationManager.delegate = self
-            locationManager.startUpdatingLocation()
-        }
-        if CLLocationManager.authorizationStatus() == .notDetermined {
-            locationManager.delegate = self
-            locationManager.requestWhenInUseAuthorization()
-        }
-        else if CLLocationManager.authorizationStatus() == .denied {
-            displayRestrictedLocationAlert()
-        }
-        else if CLLocationManager.authorizationStatus() == .restricted {
-            displayRestrictedLocationAlert()
-        }
+        setupView()
+        setupLocationManager()
     }
     
     // MARK: - View Will Appear
@@ -72,8 +49,169 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
         mapView.transform = transform
     }
     
-    // MARK: - Format Save Button
-    func formatSaveButton() {
+    // MARK: - Map Button
+    @IBAction func mapButtonTapped(_ sender: UIBarButtonItem) {
+        if mapViewIsShowing == true {
+            mapViewIsShowing = false
+            hideMapView()
+        }
+        else {
+            mapViewIsShowing = true
+            presentMapView()
+        }
+    }
+
+    // MARK: - Display Confirm Alert
+    private func displayConfirmAlert(cityId: String) {
+        let alertController = UIAlertController(title: "Confirm Selection", message: "Tap on 'Ok' to confirm your selection", preferredStyle: UIAlertController.Style.alert)
+        let button1_action = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { [unowned self] (result : UIAlertAction) -> Void in
+            self.saveNewCityIdEntry(newEntry: cityId)
+        }
+        let button2_action = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default) {
+            (result : UIAlertAction) -> Void in }
+        alertController.addAction(button1_action)
+        alertController.addAction(button2_action)
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+    // MARK: - Update City Name Label
+    private func updateCityNameLabel(cityName: String) {
+        UIView.animate(withDuration: 0.35) { [unowned self] in
+            self.cityNameLabel.text = cityName
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    // MARK: - Save Button
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        if cityList[0].cityName == "" {
+            displayCityErrorMessage()
+        }
+        else {
+            saveNewCityIdEntry(newEntry: "\(cityList[0].cityId)")
+        }
+    }
+    
+    // MARK: - Save New City Entry
+    private func saveNewCityIdEntry(newEntry: String) {
+        UserDefaultService.getSavedCityIds { [unowned self] (savedCityIds) in
+            var isAlreadyAnEntry = false
+            var cityIds = savedCityIds
+            for i in savedCityIds {
+                if i == newEntry {
+                    isAlreadyAnEntry = true
+                }
+            }
+            if isAlreadyAnEntry == true {
+                DispatchQueue.main.async { [unowned self] in
+                    self.presentAlreadyAddedAlert()
+                }
+            }
+            else {
+                cityIds.append(newEntry)
+                UserDefaultService.saveNewCityIdEntryies(entries: cityIds)
+                DispatchQueue.main.async { [unowned self] in
+                    self.presentSuccessAlert()
+                }
+            }
+        }
+    }
+    
+    // MARK: - Display Already Added Alert
+    private func presentAlreadyAddedAlert() {
+        let alertController = UIAlertController(title: "Already Added", message: "You have already added this city.\nPlease search again", preferredStyle: UIAlertController.Style.alert)
+        let button1_action = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { [unowned self] (result : UIAlertAction) -> Void in
+            self.cityList.removeAll()
+            if let sb = self.searchBar {
+                sb.endEditing(true)
+                sb.text = ""
+            }
+            self.addCityTableView.reloadData()
+            self.updateCityNameLabel(cityName: "")
+            if self.deployMarker.map != nil {
+                self.deployMarker.map = nil
+            }
+            self.saveButtonOutlet.backgroundColor = .lightGray
+            self.saveButtonOutlet.layer.borderColor = UIColor.lightGray.cgColor
+            self.saveButtonOutlet.isEnabled = false
+        }
+        alertController.addAction(button1_action)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: - Display Save Success Alert
+    private func presentSuccessAlert() {
+        let alertController = UIAlertController(title: "Saved", message: "Save Success!", preferredStyle: UIAlertController.Style.alert)
+        let button1_action = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { [unowned self] (result : UIAlertAction) -> Void in
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "Refresh_HomeVC"), object: nil)
+            self.closeVC()
+        }
+        alertController.addAction(button1_action)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: - Touches Began
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let sb = self.searchBar {
+            sb.endEditing(true)
+        }
+    }
+    
+    // MARK: - Close Button
+    @IBAction func closeButtonTapped(_ sender: UIBarButtonItem) {
+        closeVC()
+    }
+    
+    private func closeVC() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+
+// MARK: - Extention AddCityVC
+extension AddCityVC {
+
+    // MARK: - Setup View
+    private func setupView() {
+        setupSaveButton()
+        setupSearchBar()
+        setupMapview()
+        setupTableView()
+        cityNameLabel.text = ""
+        cityNameLabelBackgroundView.dropShadow()
+    }
+
+    // MARK: - Setup TableView
+    private func setupTableView() {
+        let nib = UINib.init(nibName: "AddCityVCCell", bundle: nil)
+        addCityTableView.register(nib, forCellReuseIdentifier: "addCityVCCellID")
+        addCityTableView.delegate = self
+        addCityTableView.dataSource = self
+        addCityTableView.separatorStyle = .none
+    }
+    
+    // MARK: - Setup Location Manager
+    private func setupLocationManager() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            locationManager.delegate = self
+            locationManager.startUpdatingLocation()
+        }
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            locationManager.delegate = self
+            locationManager.requestWhenInUseAuthorization()
+        }
+        else if CLLocationManager.authorizationStatus() == .denied {
+            displayRestrictedLocationAlert()
+        }
+        else if CLLocationManager.authorizationStatus() == .restricted {
+            displayRestrictedLocationAlert()
+        }
+    }
+    
+    // MARK: - Setup Save Button
+    private func setupSaveButton() {
         saveButtonOutlet.layer.cornerRadius = 33
         saveButtonOutlet.layer.borderWidth = 1
         saveButtonOutlet.backgroundColor = .lightGray
@@ -81,8 +219,8 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
         saveButtonOutlet.isEnabled = false
     }
     
-    // MARK: - Format Search Bar
-    func formatSearchBar() {
+    // MARK: - Setup Search Bar
+    private func setupSearchBar() {
         if let sb = searchBar {
             sb.delegate = self
             sb.returnKeyType = .done
@@ -106,7 +244,7 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
     }
     
     // MARK: - Format Mapview
-    func formatMapview() {
+    private func setupMapview() {
         mapView.alpha = 0
         mapView.addSubview(saveButtonOutlet)
         cityNameLabelBackgroundView.dropShadow()
@@ -114,20 +252,14 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
         mapView.addSubview(cityNameLabel)
     }
     
-    // MARK: - Map Button
-    @IBAction func mapButtonTapped(_ sender: UIBarButtonItem) {
-        if mapViewIsShowing == true {
-            mapViewIsShowing = false
-            hideMapView()
-        }
-        else {
-            mapViewIsShowing = true
-            presentMapView()
-        }
-    }
+}
 
+
+// MARK: - Extention AddCityVC
+extension AddCityVC: GMSMapViewDelegate {
+    
     // MARK: - Present MapView
-    func presentMapView() {
+    private func presentMapView() {
         DispatchQueue.main.async { [unowned self] in
             if let sb = self.searchBar {
                 sb.endEditing(true)
@@ -140,7 +272,7 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
     }
     
     // MARK: - Hide MapView
-    func hideMapView() {
+    private func hideMapView() {
         let transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
         DispatchQueue.main.async { [unowned self] in
             UIView.animate(withDuration: 0.2, animations: {
@@ -165,7 +297,7 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
         deployMarker = GMSMarker(position: coordinate)
         deployMarker.icon = GMSMarker.markerImage(with: .blue)
         deployMarker.map = mapView
-        NetworkController.searchByLatAndLon(latitude: "\(coordinate.latitude)", longtitude: "\(coordinate.longitude)") { [unowned self] (cityData) in
+        NetworkServices.searchByLatAndLon(latitude: "\(coordinate.latitude)", longtitude: "\(coordinate.longitude)") { [unowned self] (cityData) in
             MBProgressHUD.hide(for: self.navigationController?.view, animated: true)
             self.cityList.removeAll()
             self.cityList = cityData
@@ -175,94 +307,11 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
         }
     }
     
-    // MARK: - Display Confirm Alert
-    func displayConfirmAlert(cityId: String) {
-        let alertController = UIAlertController(title: "Confirm Selection", message: "Tap on 'Ok' to confirm your selection", preferredStyle: UIAlertController.Style.alert)
-        let button1_action = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { [unowned self] (result : UIAlertAction) -> Void in
-            self.saveNewCityIdEntry(newEntry: cityId)
-        }
-        let button2_action = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default) {
-            (result : UIAlertAction) -> Void in }
-        alertController.addAction(button1_action)
-        alertController.addAction(button2_action)
-        self.present(alertController, animated: true, completion: nil)
-    }
+}
 
-    // MARK: - Update City Name Label
-    func updateCityNameLabel(cityName: String) {
-        UIView.animate(withDuration: 0.35) { [unowned self] in
-            self.cityNameLabel.text = cityName
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    // MARK: - Save Button
-    @IBAction func saveButtonTapped(_ sender: UIButton) {
-        if cityList[0].cityName == "" {
-            displayCityErrorMessage()
-        }
-        else {
-            saveNewCityIdEntry(newEntry: "\(cityList[0].cityId)")
-        }
-    }
-    
-    // MARK: - Save New City Entry
-    func saveNewCityIdEntry(newEntry: String) {
-        UserDefaultsController.getSavedCityIds { [unowned self] (savedCityIds) in
-            var isAlreadyAnEntry = false
-            var cityIds = savedCityIds
-            for i in savedCityIds {
-                if i == newEntry {
-                    isAlreadyAnEntry = true
-                }
-            }
-            if isAlreadyAnEntry == true {
-                DispatchQueue.main.async { [unowned self] in
-                    self.presentAlreadyAddedAlert()
-                }
-            }
-            else {
-                cityIds.append(newEntry)
-                UserDefaultsController.saveNewCityIdEntryies(entries: cityIds)
-                DispatchQueue.main.async { [unowned self] in
-                    self.presentSuccessAlert()
-                }
-            }
-        }
-    }
-    
-    // MARK: - Display Already Added Alert
-    func presentAlreadyAddedAlert() {
-        let alertController = UIAlertController(title: "Already Added", message: "You have already added this city.\nPlease search again", preferredStyle: UIAlertController.Style.alert)
-        let button1_action = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { [unowned self] (result : UIAlertAction) -> Void in
-            self.cityList.removeAll()
-            if let sb = self.searchBar {
-                sb.endEditing(true)
-                sb.text = ""
-            }
-            self.addCityTableView.reloadData()
-            self.updateCityNameLabel(cityName: "")
-            if self.deployMarker.map != nil {
-                self.deployMarker.map = nil
-            }
-            self.saveButtonOutlet.backgroundColor = .lightGray
-            self.saveButtonOutlet.layer.borderColor = UIColor.lightGray.cgColor
-            self.saveButtonOutlet.isEnabled = false
-        }
-        alertController.addAction(button1_action)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    // MARK: - Display Save Success Alert
-    func presentSuccessAlert() {
-        let alertController = UIAlertController(title: "Saved", message: "Save Success!", preferredStyle: UIAlertController.Style.alert)
-        let button1_action = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { [unowned self] (result : UIAlertAction) -> Void in
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "Refresh_HomeVC"), object: nil)
-            self.closeVC()
-        }
-        alertController.addAction(button1_action)
-        self.present(alertController, animated: true, completion: nil)
-    }
+
+// MARK: - Extention AddCityVC
+extension AddCityVC: CLLocationManagerDelegate {
     
     // MARK: - Location Manager Delegate Methods -
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -298,29 +347,11 @@ class AddCityVC: UIViewController, UISearchBarDelegate, UITableViewDelegate, UIT
         }
     }
     
-    // MARK: - Touches Began
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let sb = self.searchBar {
-            sb.endEditing(true)
-        }
-    }
-    
-    // MARK: - Close Button
-    @IBAction func closeButtonTapped(_ sender: UIBarButtonItem) {
-        closeVC()
-    }
-    
-    func closeVC() {
-        dismiss(animated: true, completion: nil)
-    }
-    
 }
-
-// END REGION
 
 
 // MARK: - Extention AddCityVC
-extension AddCityVC {
+extension AddCityVC: UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - TableView Delegate Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -345,6 +376,13 @@ extension AddCityVC {
         displayConfirmAlert(cityId: "\(cityList[indexPath.row].cityId)")
     }
     
+}
+
+// END REGION
+
+// MARK: - Extention AddCityVC
+extension AddCityVC: UISearchBarDelegate {
+                     
     // MARK: - SearchBar Delegate Functions
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         if let sb = self.searchBar {
@@ -366,7 +404,7 @@ extension AddCityVC {
                 self.addCityTableView.reloadData()
             }
             let text = searchBar.text!.replacingOccurrences(of: " ", with: "_")
-            NetworkController.searchByFilter(searchText: text, completion: { [unowned self] (cityData) in
+            NetworkServices.searchByFilter(searchText: text, completion: { [unowned self] (cityData) in
                 self.cityList = cityData
                 self.addCityTableView.reloadData()
             })
@@ -374,5 +412,3 @@ extension AddCityVC {
     }
     
 }
-
-// END REGION

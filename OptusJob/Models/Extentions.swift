@@ -71,3 +71,26 @@ extension UIViewController {
 fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
 	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
+
+extension UIViewController {
+func setupNavBarLargeTitle() {
+    if #available(iOS 11.0, *) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    } else {
+        // Fallback on earlier versions
+    }
+    if #available(iOS 11.0, *) {
+        navigationController?.navigationItem.largeTitleDisplayMode = .always
+    } else {
+        // Fallback on earlier versions
+    }
+    navigationController?.navigationBar.barTintColor = .black
+    navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+    if #available(iOS 11.0, *) {
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+    } else {
+        // Fallback on earlier versions
+    }
+}
+
+}

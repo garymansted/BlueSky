@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserDefaultsController {
+class UserDefaultService {
     
     // MARK: - Get Saved City Ids
     static func getSavedCityIds(completion: @escaping ([String]) -> ()) {

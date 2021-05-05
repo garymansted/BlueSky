@@ -1,5 +1,5 @@
 //
-//  NetworkController.swift
+//  NetworkServices.swift
 //  OptusJob
 //
 //  Created by Gary Mansted on 25/6/18.
@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class NetworkController {
+class NetworkServices {
     static func getWeatherData(cityIds: [String], completion: @escaping (String?, [Weather]) -> ()) {
         DispatchQueue.global(qos: .userInteractive).async {
             var errorString: String? = nil
